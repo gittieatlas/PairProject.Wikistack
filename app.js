@@ -6,12 +6,15 @@ const models = require('./models');
 const path = require('path');
 const html = require('html-template-tag');
 const views = require('./views');
+const router = require('./routes')
 const PORT = 1337;
 
 const app = express();
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '/public')));
+app.use('/wiki', router.wiki);
+app.use('/user', router.user);
 
 app.get('/', (req, res) => {
   res.send(require('./views/layout.js')(''));
