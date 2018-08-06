@@ -1,11 +1,8 @@
 const express = require('express');
 const volleyball = require('volleyball');
-const client = require('./db');
 const bodyParser = require('body-parser');
 const models = require('./models');
 const path = require('path');
-const html = require('html-template-tag');
-const views = require('./views');
 const router = require('./routes');
 const PORT = 3000;
 
