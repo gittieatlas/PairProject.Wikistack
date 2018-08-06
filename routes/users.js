@@ -12,11 +12,13 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-// GET /users/:id
-router.get('/:id', async (req, res, next) => {
+// GET /users/:dynamicvalue
+router.get('/:userId', async (req, res, next) => {
   try {
-    const user = await User.findById(req.params.id);
-    const pages = await Page.findAll({ where: { authorId: req.params.id } });
+    const user = await User.findById(req.params.userId);
+    const pages = await Page.findAll({
+      where: { authorId: req.params.userId }
+    });
     res.send(userPages(user, pages));
   } catch (error) {
     next(error);

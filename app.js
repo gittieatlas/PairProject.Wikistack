@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/wiki', router.wiki);
-app.use('/user', router.user);
+app.use('/users', router.user);
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.redirect('/wiki/');
 });
 
